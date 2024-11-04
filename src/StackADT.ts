@@ -1,6 +1,6 @@
-export default interface StackADT {
-  push(item: number): void;
+export default interface StackADT<T> {
+  push(item: T): void;
   isEmpty(): boolean;
-  pop(): number;
-  peek(): number;
+  pop(): T;
+  peek(): T;
 }

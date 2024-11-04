@@ -1,9 +1,9 @@
 import StackADT from "./StackADT";
 
-export default class Stack implements StackADT {
+export default class Stack<T> implements StackADT<T> {
   // attributes
   private readonly INITIAL_CAPACITY: number;
-  private a: number[];
+  private a: T[];
   private top: number;
 
   // Constructor
@@ -13,14 +13,14 @@ export default class Stack implements StackADT {
     }
 
     this.INITIAL_CAPACITY = initCapacity || 10;
-    this.a = new Array<number>(initCapacity || 10).fill(0);
+    this.a = new Array<T>(initCapacity || 10).fill(null as T);
     this.top = -1;
   }
 
   private ensureCapacity(): void {
     if (this.top === this.a.length - 1) {
       const newCapacity = this.a.length + this.INITIAL_CAPACITY;
-      const b: number[] = new Array(newCapacity).fill(0);
+      const b: T[] = new Array(newCapacity).fill(null as T);
       for (let i = 0; i < this.a.length; i++) {
         b[i] = this.a[i];
       }
@@ -29,12 +29,12 @@ export default class Stack implements StackADT {
     }
   }
 
-  push(item: number): void {
+  push(item: T): void {
     this.ensureCapacity();
     this.a[++this.top] = item;
   }
 
-  pop(): number {
+  pop(): T {
     if (this.isEmpty()) {
       throw new Error("Stack is Empty!");
     }
