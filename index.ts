@@ -9,7 +9,6 @@ console.log(s);
 console.log(s.peek());
 
 const s2 = new Stack<number>(2);
-
 s2.push(5);
 s2.push(10);
 console.log(s2.peek());
