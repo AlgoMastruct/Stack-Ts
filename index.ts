@@ -2,6 +2,7 @@ import BalanceBracket from "./src/BalanceBracket";
 import Stack from "./src/Stack";
 
 const s = new Stack<string>(5);
+
 s.push("hello");
 s.push("masih");
 console.log(s);
